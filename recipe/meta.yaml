@@ -6,8 +6,8 @@
 {% set build_number = 0 %}
 
 {% set py_spec = ">=3.5" %}
-{% set lab_spec = ">=2,<3.0.0a0" %}
-{% set ext_spec = "@^1.0.0" %}
+{% set lab_spec = ">=2.2,<3.0.0a0" %}
+{% set ext_spec = "@^2.0.0" %}
 
 # List of jupyter_lsp py.tests ran for each known servers
 {% set server_tests = ["serverextension", "start_known", "listeners"] %}
@@ -60,11 +60,7 @@ outputs:
     requirements:
       run:
         - {{ pin_subpackage(name, exact=True) }}
-        # this combo appease pip-check, a canary for broken entry_points
-        # (used extensively by python-language-server and jupyter-lsp)
-        # in the future, this should hopefully be mostly handled by upstreams
-        - python-language-server >=0.31.9
-        - wrapt >=1.11,<=1.12.0a0
+        - python-language-server >=0.34.1
     test:
       requires:
         - jupyterlab {{ lab_spec }}
