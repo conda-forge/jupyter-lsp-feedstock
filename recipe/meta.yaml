@@ -1,11 +1,13 @@
+{% set lab_spec = ">=2,<3.0.0a0" %}
+{% set py_spec = ">=3.5" %}
 {% set name = "jupyter-lsp" %}
 {% set ext_name = "@krassowski/jupyterlab-lsp" %}
-{% set version = "0.9.1" %}
-{% set build_number = "0" %}
+{% set version = "0.9.2" %}
+{% set build_number = 0 %}
 
 {% set py_spec = ">=3.5" %}
-{% set lab_spec = ">=2,<2.2.0a0" %}
-{% set ext_spec = "@^1.1.2" %}
+{% set lab_spec = ">=2.2,<3.0.0a0" %}
+{% set ext_spec = "@^2.0.0" %}
 
 # List of jupyter_lsp py.tests ran for each known servers
 {% set server_tests = ["serverextension", "start_known", "listeners"] %}
@@ -16,7 +18,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: fb954763ccc411cf6b75c18854c19078f05b1e774f0df53f066c44458d655c8e
+  sha256: afcb1c1923075ac1f22126e72c302295098dfc97f8c7e2dc95471898c413819b
 
 build:
   noarch: python
