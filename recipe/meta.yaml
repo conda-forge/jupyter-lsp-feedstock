@@ -60,7 +60,7 @@ outputs:
     requirements:
       run:
         - {{ pin_subpackage(name, exact=True) }}
-        - python-language-server >=0.34.1
+        - python-language-server >=0.31.9
     test:
       requires:
         - jupyterlab {{ lab_spec }}
