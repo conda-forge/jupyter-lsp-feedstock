@@ -5,11 +5,11 @@ Home: https://github.com/krassowski/jupyterlab-lsp
 
 Package license: BSD-3-Clause
 
-Feedstock license: BSD-3-Clause
+Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/jupyter-lsp-feedstock/blob/master/LICENSE.txt)
 
 Summary: Multi-Language Server WebSocket proxy for Jupyter notebook or lab server for Python 3.5+.
 
-
+Documentation: https://jupyterlab-lsp.readthedocs.io
 
 Current build status
 ====================
