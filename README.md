@@ -7,7 +7,7 @@ Package license: BSD-3-Clause
 
 Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/jupyter-lsp-feedstock/blob/master/LICENSE.txt)
 
-Summary: Multi-Language Server WebSocket proxy for Jupyter notebook or lab server for Python 3.5+.
+Summary: Multi-Language Server WebSocket proxy for Jupyter Server
 
 Documentation: https://jupyterlab-lsp.readthedocs.io
 
@@ -32,6 +32,7 @@ Current release info
 | [![Conda Recipe](https://img.shields.io/badge/recipe-jupyter--lsp-green.svg)](https://anaconda.org/conda-forge/jupyter-lsp) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/jupyter-lsp.svg)](https://anaconda.org/conda-forge/jupyter-lsp) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/jupyter-lsp.svg)](https://anaconda.org/conda-forge/jupyter-lsp) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/jupyter-lsp.svg)](https://anaconda.org/conda-forge/jupyter-lsp) |
 | [![Conda Recipe](https://img.shields.io/badge/recipe-jupyter--lsp--python-green.svg)](https://anaconda.org/conda-forge/jupyter-lsp-python) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/jupyter-lsp-python.svg)](https://anaconda.org/conda-forge/jupyter-lsp-python) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/jupyter-lsp-python.svg)](https://anaconda.org/conda-forge/jupyter-lsp-python) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/jupyter-lsp-python.svg)](https://anaconda.org/conda-forge/jupyter-lsp-python) |
 | [![Conda Recipe](https://img.shields.io/badge/recipe-jupyter--lsp--r-green.svg)](https://anaconda.org/conda-forge/jupyter-lsp-r) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/jupyter-lsp-r.svg)](https://anaconda.org/conda-forge/jupyter-lsp-r) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/jupyter-lsp-r.svg)](https://anaconda.org/conda-forge/jupyter-lsp-r) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/jupyter-lsp-r.svg)](https://anaconda.org/conda-forge/jupyter-lsp-r) |
+| [![Conda Recipe](https://img.shields.io/badge/recipe-jupyterlab--lsp-green.svg)](https://anaconda.org/conda-forge/jupyterlab-lsp) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/jupyterlab-lsp.svg)](https://anaconda.org/conda-forge/jupyterlab-lsp) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/jupyterlab-lsp.svg)](https://anaconda.org/conda-forge/jupyterlab-lsp) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/jupyterlab-lsp.svg)](https://anaconda.org/conda-forge/jupyterlab-lsp) |
 
 Installing jupyter-lsp
 ======================
@@ -42,10 +43,10 @@ Installing `jupyter-lsp` from the `conda-forge` channel can be achieved by addin
 conda config --add channels conda-forge
 ```
 
-Once the `conda-forge` channel has been enabled, `jupyter-lsp, jupyter-lsp-python, jupyter-lsp-r` can be installed with:
+Once the `conda-forge` channel has been enabled, `jupyter-lsp, jupyter-lsp-python, jupyter-lsp-r, jupyterlab-lsp` can be installed with:
 
 ```
-conda install jupyter-lsp jupyter-lsp-python jupyter-lsp-r
+conda install jupyter-lsp jupyter-lsp-python jupyter-lsp-r jupyterlab-lsp
 ```
 
 It is possible to list all of the versions of `jupyter-lsp` available on your platform with:
