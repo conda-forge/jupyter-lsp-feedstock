@@ -1,6 +1,8 @@
+{% set lab_spec = ">=2.2,<3.0.0a0" %}
+{% set py_spec = ">=3.6" %}
 {% set name = "jupyter-lsp" %}
 {% set ext_name = "@krassowski/jupyterlab-lsp" %}
-{% set version = "0.9.3" %}
+{% set version = "1.0.0" %}
 {% set build_number = 0 %}
 
 {% set py_spec = ">=3.6" %}
@@ -16,7 +18,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 73b5cb47fbe672bee6c02ddc4f2fbe728dc3bff589b5741835ebb80a862163af
+  sha256: 297785ea21063fbba8e93a8f70ef3673745b1b2c66aeb8bd2adcdd8d7bf3b1ad
 
 build:
   noarch: python
