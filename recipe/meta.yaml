@@ -194,35 +194,6 @@ outputs:
       doc_url: https://jupyterlab-lsp.readthedocs.io
       doc_source_url: https://github.com/krassowski/jupyterlab-lsp/blob/master/docs
 
-  - name: jupyter-lsp-python-jedi
-    version: {{ server_version }}
-    build:
-      number: {{ server_build_number }}
-      noarch: python
-    requirements:
-      host:
-        - python >=3.6
-      run:
-        - {{ pin_subpackage("jupyter-lsp", exact=True) }}
-        - jedi-language-server
-    test:
-      requires:
-        - pip
-        - pytest-asyncio
-        - pytest-runner
-      commands:
-        - python -m pip check
-        # TODO add test for current ls by adding " or pyls" to -k option - but 1 test is failing
-        - pytest -vv -p no:warnings --pyargs jupyter_lsp -k "not ({{ server_tests|join(' or ') }} or r_package_detection)"
-    about:
-      home: https://github.com/krassowski/jupyterlab-lsp
-      license: BSD-3-Clause
-      license_family: BSD
-      license_file: jupyter-lsp/LICENSE
-      summary: A metapackage for jupyter-lsp and jedi-language-server
-      doc_url: https://jupyterlab-lsp.readthedocs.io
-      doc_source_url: https://github.com/krassowski/jupyterlab-lsp/blob/master/docs
-
   - name: jupyter-lsp-r
     version: {{ server_version }}
     build:
