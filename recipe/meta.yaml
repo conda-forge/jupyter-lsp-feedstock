@@ -172,8 +172,9 @@ outputs:
         - {{ pin_subpackage("jupyter-lsp-python", exact=True) }}
         - pyls-black
         - pyls-isort
-        - pyls-memestra
         - pyls-mypy
+        # TODO: perhaps restore after https://github.com/conda-forge/memestra-feedstock/issues/8
+        # - pyls-memestra
 
     test:
       requires:
