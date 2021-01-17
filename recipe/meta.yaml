@@ -1,4 +1,4 @@
-{% set version = "3.0.0" %}
+{% set version = "3.1.0" %}
 {% set build_number = 0 %}
 
 {% set server_version = "1.0.0" %}
@@ -14,7 +14,7 @@ package:
 source:
   - folder: jupyterlab-lsp
     url: https://pypi.io/packages/source/j/jupyterlab-lsp/jupyterlab-lsp-{{ version }}.tar.gz
-    sha256: 791bb51b373bf74e899d6968f061dd5b647ca3f254e0c9ce36715329877da3d9
+    sha256: cfd6de7402a8333e807228a664560c74ff2ef74ecb38fefc98bcf7e2eb276ec7
   - folder: jupyter-lsp
     url: https://pypi.io/packages/source/j/jupyter-lsp/jupyter-lsp-{{ server_version }}.tar.gz
     sha256: 297785ea21063fbba8e93a8f70ef3673745b1b2c66aeb8bd2adcdd8d7bf3b1ad
