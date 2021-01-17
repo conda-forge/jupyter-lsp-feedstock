@@ -57,8 +57,7 @@ outputs:
       requires:
         - pip
       commands:
-        # TODO: restore after 1.0.0
-        # - python -m pip check
+        - python -m pip check
         - jupyter labextension list
         - jupyter labextension list 1>labextensions 2>&1
         - cat labextensions | grep "jupyterlab-lsp.*OK.*jupyterlab_lsp"  # [unix]
