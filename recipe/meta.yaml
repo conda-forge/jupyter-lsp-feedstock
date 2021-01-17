@@ -1,7 +1,11 @@
+# this is the version the bot will _probably_ pick up and PR.
 {% set version = "3.1.0" %}
+# Leave the build number the same if only the server version changes.
 {% set build_number = 0 %}
 
-{% set server_version = "1.0.0" %}
+# this will likely have to be hand-updated.
+{% set server_version = "1.1.0" %}
+# Leave the build number the same if only the labextension changes.
 {% set server_build_number = 0 %}
 
 # List of jupyter_lsp py.tests ran for each known servers
@@ -17,7 +21,7 @@ source:
     sha256: cfd6de7402a8333e807228a664560c74ff2ef74ecb38fefc98bcf7e2eb276ec7
   - folder: jupyter-lsp
     url: https://pypi.io/packages/source/j/jupyter-lsp/jupyter-lsp-{{ server_version }}.tar.gz
-    sha256: 297785ea21063fbba8e93a8f70ef3673745b1b2c66aeb8bd2adcdd8d7bf3b1ad
+    sha256: eed95fa9a0ae6d4abb1203ccb04f64c4e4e707e5d19cc9b19bbf6651606af0e2
 
 build:
   noarch: python
