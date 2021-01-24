@@ -173,8 +173,7 @@ outputs:
         - pyls-black
         - pyls-isort
         - pyls-mypy
-        # TODO: perhaps restore after https://github.com/conda-forge/memestra-feedstock/issues/8
-        # - pyls-memestra
+        - pyls-memestra
 
     test:
       requires:
