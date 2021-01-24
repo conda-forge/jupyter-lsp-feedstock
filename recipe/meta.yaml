@@ -1,10 +1,10 @@
 # this is the version the bot will _probably_ pick up and PR.
-{% set version = "3.1.0" %}
+{% set version = "3.2.0" %}
 # Leave the build number the same if only the server version changes.
 {% set build_number = 0 %}
 
 # this will likely have to be hand-updated.
-{% set server_version = "1.1.0" %}
+{% set server_version = "1.1.1" %}
 # Leave the build number the same if only the labextension changes.
 {% set server_build_number = 0 %}
 
@@ -18,10 +18,10 @@ package:
 source:
   - folder: jupyterlab-lsp
     url: https://pypi.io/packages/source/j/jupyterlab-lsp/jupyterlab-lsp-{{ version }}.tar.gz
-    sha256: cfd6de7402a8333e807228a664560c74ff2ef74ecb38fefc98bcf7e2eb276ec7
+    sha256: c6902623a0fc653d78e9c6c4ee10369bb85a056e4d8787842154976c446f5102
   - folder: jupyter-lsp
     url: https://pypi.io/packages/source/j/jupyter-lsp/jupyter-lsp-{{ server_version }}.tar.gz
-    sha256: eed95fa9a0ae6d4abb1203ccb04f64c4e4e707e5d19cc9b19bbf6651606af0e2
+    sha256: a7f79b6c0e93fa85c9d191f672ea1178432f944e5b4bf8480ccff296b77599ed
 
 build:
   noarch: python
@@ -173,8 +173,7 @@ outputs:
         - pyls-black
         - pyls-isort
         - pyls-mypy
-        # TODO: perhaps restore after https://github.com/conda-forge/memestra-feedstock/issues/8
-        # - pyls-memestra
+        - pyls-memestra
 
     test:
       requires:
