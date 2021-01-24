@@ -4,7 +4,7 @@
 {% set build_number = 0 %}
 
 # this will likely have to be hand-updated.
-{% set server_version = "1.1.0" %}
+{% set server_version = "1.1.1" %}
 # Leave the build number the same if only the labextension changes.
 {% set server_build_number = 0 %}
 
@@ -21,7 +21,7 @@ source:
     sha256: c6902623a0fc653d78e9c6c4ee10369bb85a056e4d8787842154976c446f5102
   - folder: jupyter-lsp
     url: https://pypi.io/packages/source/j/jupyter-lsp/jupyter-lsp-{{ server_version }}.tar.gz
-    sha256: eed95fa9a0ae6d4abb1203ccb04f64c4e4e707e5d19cc9b19bbf6651606af0e2
+    sha256: a7f79b6c0e93fa85c9d191f672ea1178432f944e5b4bf8480ccff296b77599ed
 
 build:
   noarch: python
