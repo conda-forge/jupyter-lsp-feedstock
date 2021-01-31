@@ -1,10 +1,10 @@
 # this is the version the bot will _probably_ pick up and PR.
-{% set version = "3.2.0" %}
+{% set version = "3.3.0" %}
 # Leave the build number the same if only the server version changes.
 {% set build_number = 0 %}
 
 # this will likely have to be hand-updated.
-{% set server_version = "1.1.1" %}
+{% set server_version = "1.1.2" %}
 # Leave the build number the same if only the labextension changes.
 {% set server_build_number = 0 %}
 
@@ -18,10 +18,10 @@ package:
 source:
   - folder: jupyterlab-lsp
     url: https://pypi.io/packages/source/j/jupyterlab-lsp/jupyterlab-lsp-{{ version }}.tar.gz
-    sha256: c6902623a0fc653d78e9c6c4ee10369bb85a056e4d8787842154976c446f5102
+    sha256: 00493f80ab1265973c6e68eb8dcf423ad995670a33c5b18988fd16c466638281
   - folder: jupyter-lsp
     url: https://pypi.io/packages/source/j/jupyter-lsp/jupyter-lsp-{{ server_version }}.tar.gz
-    sha256: a7f79b6c0e93fa85c9d191f672ea1178432f944e5b4bf8480ccff296b77599ed
+    sha256: d1de670e94b95239472e99dc82a646f8c0dd5b5b230e24c55fd6f514c3711b3d
 
 build:
   noarch: python
