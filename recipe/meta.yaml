@@ -1,10 +1,10 @@
 # this is the version the bot will _probably_ pick up and PR.
-{% set version = "3.3.0" %}
+{% set version = "3.3.1" %}
 # Leave the build number the same if only the server version changes.
 {% set build_number = 0 %}
 
 # this will likely have to be hand-updated.
-{% set server_version = "1.1.2" %}
+{% set server_version = "1.1.3" %}
 # Leave the build number the same if only the labextension changes.
 {% set server_build_number = 0 %}
 
@@ -18,10 +18,10 @@ package:
 source:
   - folder: jupyterlab-lsp
     url: https://pypi.io/packages/source/j/jupyterlab-lsp/jupyterlab-lsp-{{ version }}.tar.gz
-    sha256: 00493f80ab1265973c6e68eb8dcf423ad995670a33c5b18988fd16c466638281
+    sha256: f2f2a3674eb602bb6d49f1791f504d8cdf93cb2d20f00191e0d9383b9d7916d8
   - folder: jupyter-lsp
     url: https://pypi.io/packages/source/j/jupyter-lsp/jupyter-lsp-{{ server_version }}.tar.gz
-    sha256: d1de670e94b95239472e99dc82a646f8c0dd5b5b230e24c55fd6f514c3711b3d
+    sha256: 37d8c1289ad4db0c54c3923cc79e601aa1bfa8261d3e851fd5fdb8541e377721
 
 build:
   noarch: python
@@ -82,7 +82,7 @@ outputs:
         - python >=3.6
       run:
         - entrypoints
-        - jupyter_server >={{ server_version }}
+        - jupyter_server >=1.1.2
         - python >=3.6
     test:
       requires:
