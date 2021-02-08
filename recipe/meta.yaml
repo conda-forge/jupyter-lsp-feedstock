@@ -82,7 +82,7 @@ outputs:
         - python >=3.6
       run:
         - entrypoints
-        - jupyter_server >={{ server_version }}
+        - jupyter_server >=1.1.2
         - python >=3.6
     test:
       requires:
