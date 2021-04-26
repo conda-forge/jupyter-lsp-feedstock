@@ -43,6 +43,7 @@ Installing `jupyter-lsp` from the `conda-forge` channel can be achieved by addin
 
 ```
 conda config --add channels conda-forge
+conda config --set channel_priority strict
 ```
 
 Once the `conda-forge` channel has been enabled, `jupyter-lsp, jupyter-lsp-latex, jupyter-lsp-python, jupyter-lsp-python-plugins, jupyter-lsp-r, jupyterlab-lsp` can be installed with:
