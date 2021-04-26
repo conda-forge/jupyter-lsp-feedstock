@@ -1,5 +1,5 @@
 # this is the version the bot will _hopefully_ pick up and PR.
-{% set version = "3.5.0" %}
+{% set version = "3.6.0" %}
 # Leave the build number the same if only the server version changes.
 {% set build_number = 0 %}
 
@@ -18,7 +18,7 @@ package:
 source:
   - folder: jupyterlab-lsp
     url: https://pypi.io/packages/source/j/jupyterlab-lsp/jupyterlab-lsp-{{ version }}.tar.gz
-    sha256: 93359371fe51491f98a421b1658de5ec55e15e6400a7cf6adcaabf4cbc45cb52
+    sha256: f1f03b4e1072920ac951dbd9b0b6db60b23a1585317698c09b3a1fff35281292
   - folder: jupyter-lsp
     url: https://pypi.io/packages/source/j/jupyter-lsp/jupyter-lsp-{{ server_version }}.tar.gz
     sha256: d40bb1ebb79057e17fc3d629ba516a6be401876e23f4494fd6a3cb30a6df808d
