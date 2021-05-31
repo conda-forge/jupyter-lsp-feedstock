@@ -146,37 +146,6 @@ outputs:
         - python >=3.6
       run:
         - {{ pin_subpackage("jupyter-lsp", exact=True) }}
-        - python-language-server >=0.31.9
-        # TODO: resolve on appropriate upstream
-        - autopep8 <1.5.6
-    test:
-      requires:
-        - pip
-        - pytest-asyncio
-        - pytest-runner
-      commands:
-        - pip check
-        # TODO add test for current ls by adding " or pyls" to -k option - but 1 test is failing
-        - pytest -vv -p no:warnings --pyargs jupyter_lsp -k "not ({{ server_tests|join(' or ') }} or r_package_detection)"
-    about:
-      home: https://github.com/krassowski/jupyterlab-lsp
-      license: BSD-3-Clause
-      license_family: BSD
-      license_file: jupyter-lsp/LICENSE
-      summary: A metapackage for jupyter-lsp and python-language-server
-      doc_url: https://jupyterlab-lsp.readthedocs.io
-      doc_source_url: https://github.com/krassowski/jupyterlab-lsp/blob/master/docs
-
-  - name: jupyter-lsp-python-lsp-server
-    version: {{ server_version }}
-    build:
-      number: {{ server_build_number }}
-      noarch: python
-    requirements:
-      host:
-        - python >=3.6
-      run:
-        - {{ pin_subpackage("jupyter-lsp", exact=True) }}
         - python-lsp-server >=1
     test:
       requires:
@@ -206,7 +175,7 @@ outputs:
         - python >=3.6
       run:
         - {{ pin_subpackage("jupyter-lsp-python", exact=True) }}
-        - pyls-black
+        - python-lsp-black
         - pyls-isort
         - pyls-mypy
         - pyls-memestra
