@@ -4,7 +4,7 @@
 {% set build_number = 0 %}
 
 # this will likely have to be hand-updated.
-{% set server_version = "1.3.0" %}
+{% set server_version = "1.4.0" %}
 # Leave the build number the same if only the labextension changes.
 {% set server_build_number = 0 %}
 
@@ -21,7 +21,7 @@ source:
     sha256: 5c87b25f11dff3d94db239ce8d01bd639b5fa0f3aaa2ecfbaba560f3360e8cb2
   - folder: jupyter-lsp
     url: https://pypi.io/packages/source/j/jupyter-lsp/jupyter-lsp-{{ server_version }}.tar.gz
-    sha256: e9d2afe3f759422c9b43fc59ec83a840f28600d270f63c69635606fdb0436033
+    sha256: baf12d9a7cc95d03e9c5d9c871fd7ff3d1202a889b322b155032eb3f677fb487
 
 build:
   noarch: python
@@ -177,7 +177,7 @@ outputs:
         - {{ pin_subpackage("jupyter-lsp-python", exact=True) }}
         - python-lsp-black
         - pyls-isort
-        - pyls-mypy
+        - pylsp-mypy
         - pyls-memestra
 
     test:
