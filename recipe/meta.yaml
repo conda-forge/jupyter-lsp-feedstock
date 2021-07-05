@@ -177,7 +177,7 @@ outputs:
         - {{ pin_subpackage("jupyter-lsp-python", exact=True) }}
         - python-lsp-black
         - pyls-isort
-        - pyls-mypy
+        - pylsp-mypy
         - pyls-memestra
 
     test:
