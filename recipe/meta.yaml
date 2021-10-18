@@ -67,13 +67,13 @@ outputs:
         - cat serverextensions | grep "jupyter_lsp.*OK"  # [unix]
 
     about:
-      home: https://github.com/krassowski/jupyterlab-lsp
+      home: https://github.com/jupyter-lsp/jupyterlab-lsp
       license_file: jupyterlab-lsp/LICENSE
       license: BSD-3-Clause
       license_family: BSD
       summary: Language Server Protocol integration for JupyterLab
       doc_url: https://jupyterlab-lsp.readthedocs.io
-      doc_source_url: https://github.com/krassowski/jupyterlab-lsp/blob/master/docs
+      doc_source_url: https://github.com/jupyter-lsp/jupyterlab-lsp/blob/master/docs
 
   - name: jupyter-lsp
     version: {{ server_version }}
@@ -98,13 +98,13 @@ outputs:
         - jupyter server extension list 1>serverextensions 2>&1
         - cat serverextensions | grep "jupyter_lsp.*OK"  # [unix]
     about:
-      home: https://github.com/krassowski/jupyterlab-lsp
+      home: https://github.com/jupyter-lsp/jupyterlab-lsp
       license: BSD-3-Clause
       license_family: BSD
       license_file: jupyter-lsp/LICENSE
       summary: Multi-Language Server WebSocket proxy for Jupyter Server
       doc_url: https://jupyterlab-lsp.readthedocs.io
-      doc_source_url: https://github.com/krassowski/jupyterlab-lsp/blob/master/docs
+      doc_source_url: https://github.com/jupyter-lsp/jupyterlab-lsp/blob/master/docs
 
   - name: jupyter-lsp-latex
     version: {{ server_version }}
@@ -128,13 +128,13 @@ outputs:
         # TODO add test for current ls by adding " or pyls" to -k option - but 1 test is failing
         - pytest -vv -p no:warnings --pyargs jupyter_lsp -k "not ({{ server_tests|join(' or ') }} or r_package_detection)"
     about:
-      home: https://github.com/krassowski/jupyterlab-lsp
+      home: https://github.com/jupyter-lsp/jupyterlab-lsp
       license: BSD-3-Clause
       license_family: BSD
       license_file: jupyter-lsp/LICENSE
       summary: A metapackage for jupyter-lsp and texlab
       doc_url: https://jupyterlab-lsp.readthedocs.io
-      doc_source_url: https://github.com/krassowski/jupyterlab-lsp/blob/master/docs
+      doc_source_url: https://github.com/jupyter-lsp/jupyterlab-lsp/blob/master/docs
 
   - name: jupyter-lsp-python
     version: {{ server_version }}
@@ -157,13 +157,13 @@ outputs:
         # TODO add test for current ls by adding " or pyls" to -k option - but 1 test is failing
         - pytest -vv -p no:warnings --pyargs jupyter_lsp -k "not ({{ server_tests|join(' or ') }} or r_package_detection)"
     about:
-      home: https://github.com/krassowski/jupyterlab-lsp
+      home: https://github.com/jupyter-lsp/jupyterlab-lsp
       license: BSD-3-Clause
       license_family: BSD
       license_file: jupyter-lsp/LICENSE
       summary: A metapackage for jupyter-lsp and python-lsp-server
       doc_url: https://jupyterlab-lsp.readthedocs.io
-      doc_source_url: https://github.com/krassowski/jupyterlab-lsp/blob/master/docs
+      doc_source_url: https://github.com/jupyter-lsp/jupyterlab-lsp/blob/master/docs
 
   - name: jupyter-lsp-python-plugins
     version: {{ server_version }}
@@ -189,13 +189,13 @@ outputs:
         # TODO add test for current ls by adding " or pyls" to -k option - but 1 test is failing
         - pytest -vv -p no:warnings --pyargs jupyter_lsp -k "not ({{ server_tests|join(' or ') }} or r_package_detection)"
     about:
-      home: https://github.com/krassowski/jupyterlab-lsp
+      home: https://github.com/jupyter-lsp/jupyterlab-lsp
       license: BSD-3-Clause
       license_family: BSD
       license_file: jupyter-lsp/LICENSE
       summary: A metapackage for jupyter-lsp, python-language-server, and all known plugins
       doc_url: https://jupyterlab-lsp.readthedocs.io
-      doc_source_url: https://github.com/krassowski/jupyterlab-lsp/blob/master/docs
+      doc_source_url: https://github.com/jupyter-lsp/jupyterlab-lsp/blob/master/docs
 
   - name: jupyter-lsp-r
     version: {{ server_version }}
@@ -207,7 +207,7 @@ outputs:
         - python >=3.6
       run:
         - {{ pin_subpackage("jupyter-lsp", exact=True) }}
-        # Snippets support https://github.com/krassowski/jupyterlab-lsp/issues/208
+        # Snippets support https://github.com/jupyter-lsp/jupyterlab-lsp/issues/208
         - r-languageserver >=0.3.5
     test:
       requires:
@@ -218,23 +218,23 @@ outputs:
         - pip check
         - pytest -vv -p no:warnings --pyargs jupyter_lsp -k "not ({{ server_tests|join(' or ') }})"
     about:
-      home: https://github.com/krassowski/jupyterlab-lsp
+      home: https://github.com/jupyter-lsp/jupyterlab-lsp
       license: BSD-3-Clause
       license_family: BSD
       license_file: jupyter-lsp/LICENSE
       summary: A metapackage jupyter-lsp and r-languageserver
       doc_url: https://jupyterlab-lsp.readthedocs.io
-      doc_source_url: https://github.com/krassowski/jupyterlab-lsp/blob/master/docs
+      doc_source_url: https://github.com/jupyter-lsp/jupyterlab-lsp/blob/master/docs
 
 
 about:
-  home: https://github.com/krassowski/jupyterlab-lsp
+  home: https://github.com/jupyter-lsp/jupyterlab-lsp
   license: BSD-3-Clause
   license_family: BSD
   license_file: jupyterlab-lsp/LICENSE
   summary: Multi-Language Server WebSocket proxy for Jupyter Server
   doc_url: https://jupyterlab-lsp.readthedocs.io
-  doc_source_url: https://github.com/krassowski/jupyterlab-lsp/blob/master/docs
+  doc_source_url: https://github.com/jupyter-lsp/jupyterlab-lsp/blob/master/docs
 
 extra:
   feedstock-name: jupyter-lsp
