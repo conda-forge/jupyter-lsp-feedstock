@@ -1,7 +1,7 @@
 About jupyter-lsp
 =================
 
-Home: https://github.com/krassowski/jupyterlab-lsp
+Home: https://github.com/jupyter-lsp/jupyterlab-lsp
 
 Package license: BSD-3-Clause
 
