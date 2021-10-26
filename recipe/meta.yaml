@@ -147,6 +147,9 @@ outputs:
       run:
         - {{ pin_subpackage("jupyter-lsp", exact=True) }}
         - python-lsp-server >=1
+      run_constrained:
+        # TODO: probably can remove this after a few builds, see #35
+        - autopep8 !=1.6.0=*_0
     test:
       requires:
         - pip
