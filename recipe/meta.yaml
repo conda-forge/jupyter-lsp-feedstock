@@ -1,10 +1,10 @@
 # this is the version the bot will _hopefully_ pick up and PR.
-{% set version = "3.9.1" %}
+{% set version = "3.9.2" %}
 # Leave the build number the same if only the server version changes.
 {% set build_number = 0 %}
 
 # this will likely have to be hand-updated.
-{% set server_version = "1.5.0" %}
+{% set server_version = "1.5.1" %}
 # Leave the build number the same if only the labextension changes.
 {% set server_build_number = 0 %}
 
@@ -18,10 +18,10 @@ package:
 source:
   - folder: jupyterlab-lsp
     url: https://pypi.io/packages/source/j/jupyterlab-lsp/jupyterlab-lsp-{{ version }}.tar.gz
-    sha256: c9deba5dd3e89b3c20cefd50f8760d2f96e3439092d0dc5567e09c623cdc71a8
+    sha256: 60685d4f01e5ce8c4d61bac9c780ecd0c1488651353b9135afbfd743f41c9d02
   - folder: jupyter-lsp
     url: https://pypi.io/packages/source/j/jupyter-lsp/jupyter-lsp-{{ server_version }}.tar.gz
-    sha256: d30f114ac8318fd7ebac23bf106eadd912d330e39abac2abb0240d1a2840f4ac
+    sha256: 751abd35413be99a4331f3597b09341adc755589ed32091ac2f686db3d61267e
 
 build:
   noarch: python
@@ -181,6 +181,8 @@ outputs:
         - pyls-isort >=0.2.2
         - pylsp-mypy >=0.5.1
         - pyls-memestra >=0.0.13
+      run_constrained:
+        - ipython >=7.20
 
     test:
       requires:
