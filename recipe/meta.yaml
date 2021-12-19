@@ -1,5 +1,5 @@
 # this is the version the bot will _hopefully_ pick up and PR.
-{% set version = "3.9.2" %}
+{% set version = "3.9.3" %}
 # Leave the build number the same if only the server version changes.
 {% set build_number = 0 %}
 
@@ -18,7 +18,7 @@ package:
 source:
   - folder: jupyterlab-lsp
     url: https://pypi.io/packages/source/j/jupyterlab-lsp/jupyterlab-lsp-{{ version }}.tar.gz
-    sha256: 60685d4f01e5ce8c4d61bac9c780ecd0c1488651353b9135afbfd743f41c9d02
+    sha256: bb5ec53739d4234b98a5f8666df4c939b22b456c58d318842037bccef0b21290
   - folder: jupyter-lsp
     url: https://pypi.io/packages/source/j/jupyter-lsp/jupyter-lsp-{{ server_version }}.tar.gz
     sha256: 751abd35413be99a4331f3597b09341adc755589ed32091ac2f686db3d61267e
@@ -30,9 +30,9 @@ build:
 requirements:
   host:
     - pip
-    - python >=3.6
+    - python >=3.7
   run:
-    - python >=3.6
+    - python >=3.7
 
 test:
   commands:
@@ -48,11 +48,11 @@ outputs:
     requirements:
       host:
         - pip
-        - python >=3.6
+        - python >=3.7
       run:
         - jupyter-lsp >={{ server_version }}
         - jupyterlab >=3,<4
-        - python >=3.6
+        - python >=3.7
     test:
       requires:
         - pip
@@ -84,11 +84,11 @@ outputs:
     requirements:
       host:
         - pip
-        - python >=3.6
+        - python >=3.7
       run:
         - entrypoints
         - jupyter_server >=1.1.2
-        - python >=3.6
+        - python >=3.7
     test:
       requires:
         - pip
@@ -113,7 +113,7 @@ outputs:
       noarch: python
     requirements:
       host:
-        - python >=3.6
+        - python >=3.7
       run:
         - {{ pin_subpackage("jupyter-lsp", exact=True) }}
         - texlab
@@ -143,7 +143,7 @@ outputs:
       noarch: python
     requirements:
       host:
-        - python >=3.6
+        - python >=3.7
       run:
         - {{ pin_subpackage("jupyter-lsp", exact=True) }}
         - python-lsp-server >=1
@@ -175,7 +175,7 @@ outputs:
       noarch: python
     requirements:
       host:
-        - python >=3.6
+        - python >=3.7
       run:
         - {{ pin_subpackage("jupyter-lsp-python", exact=True) }}
         - pyls-isort >=0.2.2
@@ -209,7 +209,7 @@ outputs:
       noarch: python
     requirements:
       host:
-        - python >=3.6
+        - python >=3.7
       run:
         - {{ pin_subpackage("jupyter-lsp", exact=True) }}
         # Snippets support https://github.com/jupyter-lsp/jupyterlab-lsp/issues/208
