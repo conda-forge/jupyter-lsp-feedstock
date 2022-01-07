@@ -6,7 +6,7 @@
 # this will likely have to be hand-updated.
 {% set server_version = "1.5.1" %}
 # Leave the build number the same if only the labextension changes.
-{% set server_build_number = 0 %}
+{% set server_build_number = 1 %}
 
 # List of jupyter_lsp py.tests ran for each known servers
 {% set server_tests = ["serverextension", "start_known", "listeners"] %}
