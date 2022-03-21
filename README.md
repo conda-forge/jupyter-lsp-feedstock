@@ -5,7 +5,7 @@ Home: https://github.com/jupyter-lsp/jupyterlab-lsp
 
 Package license: BSD-3-Clause
 
-Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/jupyter-lsp-feedstock/blob/master/LICENSE.txt)
+Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/jupyter-lsp-feedstock/blob/main/LICENSE.txt)
 
 Summary: Multi-Language Server WebSocket proxy for Jupyter Server
 
@@ -17,8 +17,8 @@ Current build status
 
 <table><tr><td>All platforms:</td>
     <td>
-      <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=10651&branchName=master">
-        <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/jupyter-lsp-feedstock?branchName=master">
+      <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=10651&branchName=main">
+        <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/jupyter-lsp-feedstock?branchName=main">
       </a>
     </td>
   </tr>
