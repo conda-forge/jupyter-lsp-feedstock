@@ -68,7 +68,9 @@ outputs:
 
     about:
       home: https://github.com/jupyter-lsp/jupyterlab-lsp
-      license_file: jupyterlab-lsp/LICENSE
+      license_file:
+        - jupyterlab-lsp/LICENSE
+        - jupyterlab-lsp/jupyterlab_lsp/labextensions/@krassowski/jupyterlab-lsp/static/third-party-licenses.json
       license: BSD-3-Clause
       license_family: BSD
       summary: Language Server Protocol integration for JupyterLab
