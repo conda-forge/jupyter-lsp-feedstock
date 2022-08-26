@@ -1,5 +1,5 @@
 # this is the version the bot will _hopefully_ pick up and PR.
-{% set version = "3.10.1" %}
+{% set version = "3.10.2" %}
 # Leave the build number the same if only the server version changes.
 {% set build_number = 0 %}
 
@@ -18,7 +18,7 @@ package:
 source:
   - folder: jupyterlab-lsp
     url: https://pypi.io/packages/source/j/jupyterlab-lsp/jupyterlab-lsp-{{ version }}.tar.gz
-    sha256: 9ad6ef22c4972b85480797034fc7914728eb78f1856b4dab3361686e4f20c9dd
+    sha256: 559ad4692f97f42dd6b9f0b330ab92703f02b8e45bbaf6e9cf59898a897222a0
   - folder: jupyter-lsp
     url: https://pypi.io/packages/source/j/jupyter-lsp/jupyter-lsp-{{ server_version }}.tar.gz
     sha256: 751abd35413be99a4331f3597b09341adc755589ed32091ac2f686db3d61267e
@@ -51,7 +51,7 @@ outputs:
         - python >=3.7
       run:
         - jupyter-lsp >={{ server_version }}
-        - jupyterlab >=3,<4
+        - jupyterlab >=3.1.0,<4
         - python >=3.7
     test:
       requires:
@@ -68,7 +68,9 @@ outputs:
 
     about:
       home: https://github.com/jupyter-lsp/jupyterlab-lsp
-      license_file: jupyterlab-lsp/LICENSE
+      license_file:
+        - jupyterlab-lsp/LICENSE
+        - jupyterlab-lsp/jupyterlab_lsp/labextensions/@krassowski/jupyterlab-lsp/static/third-party-licenses.json
       license: BSD-3-Clause
       license_family: BSD
       summary: Language Server Protocol integration for JupyterLab
