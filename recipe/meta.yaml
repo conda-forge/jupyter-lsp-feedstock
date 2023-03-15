@@ -186,10 +186,9 @@ outputs:
         - {{ pin_subpackage("jupyter-lsp-python", exact=True) }}
         - pyls-isort >=0.2.2
         - pylsp-mypy >=0.5.1,!=0.6.6=*_0
-        # - pyls-memestra >=0.0.13
+        - pyls-memestra >=0.0.13
       run_constrained:
         - ipython >=7.20
-
     test:
       requires:
         - pip
