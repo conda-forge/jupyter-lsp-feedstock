@@ -1,13 +1,76 @@
+About jupyter-lsp-feedstock
+===========================
+
+Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/jupyter-lsp-feedstock/blob/main/LICENSE.txt)
+
 About jupyter-lsp
-=================
+-----------------
 
 Home: https://github.com/jupyter-lsp/jupyterlab-lsp
 
 Package license: BSD-3-Clause
 
-Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/jupyter-lsp-feedstock/blob/main/LICENSE.txt)
+Summary: Multi-Language Server WebSocket proxy for Jupyter Server
+
+Documentation: https://jupyterlab-lsp.readthedocs.io
+About jupyter-lsp
+-----------------
+
+Home: https://github.com/jupyter-lsp/jupyterlab-lsp
+
+Package license: BSD-3-Clause
 
 Summary: Multi-Language Server WebSocket proxy for Jupyter Server
+
+Documentation: https://jupyterlab-lsp.readthedocs.io
+About jupyter-lsp-latex
+-----------------------
+
+Home: https://github.com/jupyter-lsp/jupyterlab-lsp
+
+Package license: BSD-3-Clause
+
+Summary: A metapackage for jupyter-lsp and texlab
+
+Documentation: https://jupyterlab-lsp.readthedocs.io
+About jupyter-lsp-python
+------------------------
+
+Home: https://github.com/jupyter-lsp/jupyterlab-lsp
+
+Package license: BSD-3-Clause
+
+Summary: A metapackage for jupyter-lsp and python-lsp-server
+
+Documentation: https://jupyterlab-lsp.readthedocs.io
+About jupyter-lsp-r
+-------------------
+
+Home: https://github.com/jupyter-lsp/jupyterlab-lsp
+
+Package license: BSD-3-Clause
+
+Summary: A metapackage jupyter-lsp and r-languageserver
+
+Documentation: https://jupyterlab-lsp.readthedocs.io
+About jupyterlab-lsp
+--------------------
+
+Home: https://github.com/jupyter-lsp/jupyterlab-lsp
+
+Package license: BSD-3-Clause
+
+Summary: Language Server Protocol integration for JupyterLab
+
+Documentation: https://jupyterlab-lsp.readthedocs.io
+About jupyter-lsp-python-plugins
+--------------------------------
+
+Home: https://github.com/jupyter-lsp/jupyterlab-lsp
+
+Package license: BSD-3-Clause
+
+Summary: A metapackage for jupyter-lsp, python-language-server, and all known plugins
 
 Documentation: https://jupyterlab-lsp.readthedocs.io
 
