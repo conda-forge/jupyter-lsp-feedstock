@@ -18,7 +18,7 @@ package:
 source:
   - folder: jupyterlab-lsp
     url: https://pypi.io/packages/source/j/jupyterlab-lsp/jupyterlab-lsp-{{ version }}.tar.gz
-    sha256: b38976f1777ae079207ff8bdb5c4991c500ae33a5567bc18b9ce57ec6291af20
+    sha256: 94ef2f0fb5bacab691ca9a6c946d1500c0311fadc4fcbede40ff704ffa6974eb
   - folder: jupyter-lsp
     url: https://pypi.io/packages/source/j/jupyter-lsp/jupyter-lsp-{{ server_version }}.tar.gz
     sha256: 8ebbcb533adb41e5d635eb8fe82956b0aafbf0fd443b6c4bfa906edeeb8635a1
