@@ -1,15 +1,23 @@
 # this is the version the bot will _hopefully_ pick up and PR.
 {% set version = "5.1.0" %}
 # Leave the build number the same if only the server version changes.
-{% set build_number = 0 %}
+{% set build_number = 1 %}
 
 # this will likely have to be hand-updated.
-{% set server_version = "2.2.3" %}
+{% set server_version = "2.2.4" %}
 # Leave the build number the same if only the labextension changes.
 {% set server_build_number = 0 %}
 
 # List of jupyter_lsp py.tests ran for each known servers
 {% set server_tests = ["serverextension", "start_known", "listeners"] %}
+
+# the minimum python
+{% set min_python = "python >=3.8" %}
+
+# provide PYTHON when re-rendering `noarch:generic` packages
+{% if PYTHON is undefined %}
+  {% set PYTHON = "$PYTHON" %}
+{% endif %}
 
 package:
   name: jupyter-lsp-meta  # To avoid issue https://github.com/conda/conda-build/issues/3933
@@ -21,7 +29,7 @@ source:
     sha256: aeac84093ada6d20ef57ae0e97811cc5796a0cab7237b32f8eddf993c0bb0356
   - folder: jupyter-lsp
     url: https://pypi.io/packages/source/j/jupyter-lsp/jupyter-lsp-{{ server_version }}.tar.gz
-    sha256: 33dbcbc5df24237ff5c8b696b04ff4689fcd316cb8d4957d620fe5504d7d2c3f
+    sha256: 5e50033149344065348e688608f3c6d654ef06d9856b67655bd7b6bac9ee2d59
 
 build:
   noarch: python
@@ -29,10 +37,9 @@ build:
 
 requirements:
   host:
-    - pip
-    - python >=3.8
+    - {{ min_python }}
   run:
-    - python >=3.8
+    - {{ min_python }}
 
 test:
   commands:
@@ -47,12 +54,12 @@ outputs:
       script: cd jupyterlab-lsp && {{ PYTHON }} -m pip install . --no-deps -vv --no-build-isolation
     requirements:
       host:
+        - {{ min_python }}
         - pip
-        - python >=3.8
       run:
+        - {{ min_python }}
         - jupyter-lsp >={{ server_version }}
         - jupyterlab >=4.1.0,<5.0.0a0
-        - python >=3.8
     test:
       requires:
         - pip
@@ -88,12 +95,12 @@ outputs:
       script: cd jupyter-lsp && {{ PYTHON }} -m pip install . --no-deps -vv --no-build-isolation
     requirements:
       host:
+        - {{ min_python }}
         - pip
-        - python >=3.8
       run:
+        - {{ min_python }}
         - importlib-metadata >=4.8.3
         - jupyter_server >=1.1.2
-        - python >=3.8
     test:
       requires:
         - pip
@@ -119,10 +126,8 @@ outputs:
     version: {{ server_version }}
     build:
       number: {{ server_build_number }}
-      noarch: python
+      noarch: generic
     requirements:
-      host:
-        - python >=3.8
       run:
         - {{ pin_subpackage("jupyter-lsp", exact=True) }}
         - texlab
@@ -149,10 +154,8 @@ outputs:
     version: {{ server_version }}
     build:
       number: {{ server_build_number }}
-      noarch: python
+      noarch: generic
     requirements:
-      host:
-        - python >=3.8
       run:
         - {{ pin_subpackage("jupyter-lsp", exact=True) }}
         - python-lsp-server >=1
@@ -178,10 +181,8 @@ outputs:
     version: {{ server_version }}
     build:
       number: {{ server_build_number }}
-      noarch: python
+      noarch: generic
     requirements:
-      host:
-        - python >=3.8
       run:
         - {{ pin_subpackage("jupyter-lsp-python", exact=True) }}
         - pyls-isort >=0.2.2
@@ -212,10 +213,8 @@ outputs:
     version: {{ server_version }}
     build:
       number: {{ server_build_number }}
-      noarch: python
+      noarch: generic
     requirements:
-      host:
-        - python >=3.8
       run:
         - {{ pin_subpackage("jupyter-lsp", exact=True) }}
         # Snippets support https://github.com/jupyter-lsp/jupyterlab-lsp/issues/208
