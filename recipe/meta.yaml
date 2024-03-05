@@ -11,6 +11,9 @@
 # List of jupyter_lsp py.tests ran for each known servers
 {% set server_tests = ["serverextension", "start_known", "listeners"] %}
 
+# the minimum python
+{% set min_python = "python >=3.8" %}
+
 # provide PYTHON when re-rendering `noarch:generic` packages
 {% if PYTHON is undefined %}
   {% set PYTHON = "$PYTHON" %}
@@ -34,10 +37,9 @@ build:
 
 requirements:
   host:
-    - pip
-    - python >=3.8
+    - {{ min_python }}
   run:
-    - python >=3.8
+    - {{ min_python }}
 
 test:
   commands:
@@ -52,12 +54,12 @@ outputs:
       script: cd jupyterlab-lsp && {{ PYTHON }} -m pip install . --no-deps -vv --no-build-isolation
     requirements:
       host:
+        - {{ min_python }}
         - pip
-        - python >=3.8
       run:
+        - {{ min_python }}
         - jupyter-lsp >={{ server_version }}
         - jupyterlab >=4.1.0,<5.0.0a0
-        - python >=3.8
     test:
       requires:
         - pip
@@ -93,12 +95,12 @@ outputs:
       script: cd jupyter-lsp && {{ PYTHON }} -m pip install . --no-deps -vv --no-build-isolation
     requirements:
       host:
+        - {{ min_python }}
         - pip
-        - python >=3.8
       run:
+        - {{ min_python }}
         - importlib-metadata >=4.8.3
         - jupyter_server >=1.1.2
-        - python >=3.8
     test:
       requires:
         - pip
