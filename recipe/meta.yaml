@@ -1,15 +1,15 @@
 # this is the version the bot will _hopefully_ pick up and PR.
 {% set version = "5.1.0" %}
 # Leave the build number the same if only the server version changes.
-{% set build_number = 1 %}
+{% set build_number = 2 %}
 
 # this will likely have to be hand-updated.
-{% set server_version = "2.2.4" %}
+{% set server_version = "2.2.5" %}
 # Leave the build number the same if only the labextension changes.
 {% set server_build_number = 0 %}
 
 # List of jupyter_lsp py.tests ran for each known servers
-{% set server_tests = ["serverextension", "start_known", "listeners"] %}
+{% set server_tests = ["serverextension", "start_known", "listeners", "test_substitute_env"] %}
 
 # the minimum python
 {% set min_python = "python >=3.8" %}
@@ -29,7 +29,7 @@ source:
     sha256: aeac84093ada6d20ef57ae0e97811cc5796a0cab7237b32f8eddf993c0bb0356
   - folder: jupyter-lsp
     url: https://pypi.io/packages/source/j/jupyter-lsp/jupyter-lsp-{{ server_version }}.tar.gz
-    sha256: 5e50033149344065348e688608f3c6d654ef06d9856b67655bd7b6bac9ee2d59
+    sha256: 793147a05ad446f809fd53ef1cd19a9f5256fd0a2d6b7ce943a982cb4f545001
 
 build:
   noarch: python
