@@ -1,7 +1,7 @@
 # this is the version the bot will _hopefully_ pick up and PR.
 {% set version = "5.1.0" %}
 # Leave the build number the same if only the server version changes.
-{% set build_number = 2 %}
+{% set build_number = 3 %}
 
 # this will likely have to be hand-updated.
 {% set server_version = "2.2.5" %}
@@ -25,10 +25,10 @@ package:
 
 source:
   - folder: jupyterlab-lsp
-    url: https://pypi.io/packages/source/j/jupyterlab-lsp/jupyterlab-lsp-{{ version }}.tar.gz
+    url: https://pypi.org/packages/source/j/jupyterlab-lsp/jupyterlab-lsp-{{ version }}.tar.gz
     sha256: aeac84093ada6d20ef57ae0e97811cc5796a0cab7237b32f8eddf993c0bb0356
   - folder: jupyter-lsp
-    url: https://pypi.io/packages/source/j/jupyter-lsp/jupyter-lsp-{{ server_version }}.tar.gz
+    url: https://pypi.org/packages/source/j/jupyter-lsp/jupyter-lsp-{{ server_version }}.tar.gz
     sha256: 793147a05ad446f809fd53ef1cd19a9f5256fd0a2d6b7ce943a982cb4f545001
 
 build:
@@ -42,6 +42,8 @@ requirements:
     - {{ min_python }}
 
 test:
+  requires:
+    - python {{ python_min }}
   commands:
     - echo "TBD"
 
@@ -64,6 +66,7 @@ outputs:
       requires:
         - pip
         - m2-grep  # [win]
+        - python {{ python_min }}
       commands:
         - pip check
         # print them all for debugging
@@ -105,6 +108,7 @@ outputs:
       requires:
         - pip
         - m2-grep  # [win]
+        - python {{ python_min }}
       commands:
         - pip check
         # print them all for debugging
