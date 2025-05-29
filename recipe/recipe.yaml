@@ -63,10 +63,8 @@ outputs:
         script:
           - jupyter labextension list
           - jupyter server extension list
-          - jupyter labextension list |
-              python -c "import re, sys; assert re.search(r'jupyterlab-lsp.*OK.*jupyterlab-lsp', sys.stdin.read())"
-          - jupyter server extension list |
-              python -c "import re, sys; assert re.search(r'jupyter_lsp.*OK.*jupyterlab-lsp', sys.stdin.read())"
+          - jupyter labextension list | python -c "import re, sys; assert re.search(r'jupyterlab-lsp.*OK.*jupyterlab-lsp', sys.stdin.read())"
+          - jupyter server extension list | python -c "import re, sys; assert re.search(r'jupyter_lsp.*OK.*jupyterlab-lsp', sys.stdin.read())"
     about:
       license_file:
         - jupyterlab-lsp/LICENSE
@@ -106,8 +104,7 @@ outputs:
             - python ${{ python_min }}.*
         script:
           - jupyter server extension list
-          - jupyter server extension list |
-              python -c "import re, sys; assert re.search(r'jupyter_lsp.*OK', sys.stdin.read())"
+          - jupyter server extension list | python -c "import re, sys; assert re.search(r'jupyter_lsp.*OK', sys.stdin.read())"
     about:
       license: BSD-3-Clause
       license_file: jupyter-lsp/LICENSE
@@ -138,7 +135,7 @@ outputs:
             - pytest-asyncio
             - pytest-runner
         script:
-          - pytest -vv -p no:warnings --pyargs jupyter_lsp -k "not (${{ server_tests }} or r_package_detection)"
+          - pytest -vv --tb=long --color=yes -p no:warnings --pyargs jupyter_lsp -k "not (${{ server_tests }} or r_package_detection)"
     about:
       license: BSD-3-Clause
       license_file: jupyter-lsp/LICENSE
@@ -168,7 +165,7 @@ outputs:
             - pytest-asyncio
             - pytest-runner
         script:
-          - pytest -vv -p no:warnings --pyargs jupyter_lsp -k "not (${{ server_tests }} or r_package_detection)"
+          - pytest -vv --tb=long --color=yes -p no:warnings --pyargs jupyter_lsp -k "not (${{ server_tests }} or r_package_detection)"
     about:
       license: BSD-3-Clause
       license_file: jupyter-lsp/LICENSE
@@ -204,7 +201,7 @@ outputs:
             - pytest-asyncio
             - pytest-runner
         script:
-          - pytest -vv -p no:warnings --pyargs jupyter_lsp -k "not (${{ server_tests }} or r_package_detection)"
+          - pytest -vv --tb=long --color=yes -p no:warnings --pyargs jupyter_lsp -k "not (${{ server_tests }} or r_package_detection)"
     about:
       license: BSD-3-Clause
       license_file: jupyter-lsp/LICENSE
@@ -235,7 +232,7 @@ outputs:
             - pytest-asyncio
             - pytest-runner
         script:
-          - pytest -vv -p no:warnings --pyargs jupyter_lsp -k "not (${{ server_tests }})"
+          - pytest -vv --tb=long --color=yes -p no:warnings --pyargs jupyter_lsp -k "not (${{ server_tests }})"
     about:
       license: BSD-3-Clause
       license_file: jupyter-lsp/LICENSE
