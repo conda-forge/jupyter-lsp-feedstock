@@ -1,0 +1,258 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/prefix-dev/recipe-format/main/schema.json
+schema_version: 1
+
+context:
+  # this is the version the bot will _hopefully_ pick up and PR.
+  version: 5.1.1
+  # Leave the build number the same if only the server version changes.
+  build_number: 0
+  # this will likely have to be hand-updated.
+  server_version: 2.2.5
+  # Leave the build number the same if only the labextension changes.
+  server_build_number: 1
+  # a non-minumum version of python to check
+  python_check_max: 3.13
+  # skipped server tests to avoid container networking adventures
+  server_tests: serverextension or start_known or listeners or substitute_env
+
+recipe:
+  name: jupyter-lsp-meta
+  version: ${{ version }}
+
+source:
+  - url: https://pypi.org/packages/source/j/jupyterlab-lsp/jupyterlab_lsp-${{ version }}.tar.gz
+    sha256: 7233ca73ea0f2da8598ea33d84c243635466d1af70ddce8cd8336ef95dca08bf
+    target_directory: jupyterlab-lsp
+  - url: https://pypi.org/packages/source/j/jupyter-lsp/jupyter-lsp-${{ server_version }}.tar.gz
+    sha256: 793147a05ad446f809fd53ef1cd19a9f5256fd0a2d6b7ce943a982cb4f545001
+    target_directory: jupyter-lsp
+
+build:
+  number: ${{ build_number }}
+  noarch: python
+
+outputs:
+  - package:
+      name: jupyterlab-lsp
+      version: ${{ version }}
+    build:
+      number: ${{ build_number }}
+      noarch: python
+      script:
+        - cd jupyterlab-lsp
+        - ${{ PYTHON }} -m pip install . --no-deps -vv --no-build-isolation --disable-pip-version-check
+    requirements:
+      host:
+        - pip
+        - python ${{ python_min }}.*
+        - setuptools
+      run:
+        - jupyter-lsp >=${{ server_version }}
+        - jupyterlab >=4.1.0,<5.0.0a0
+        - python >=${{ python_min }}
+    tests:
+      - python:
+          imports: jupyterlab_lsp
+          pip_check: true
+          python_version:
+            - ${{ python_min }}.*
+            - ${{ python_check_max }}.*
+      - requirements:
+          run:
+            - python ${{ python_min }}.*
+        script:
+          - jupyter labextension list
+          - jupyter server extension list
+          - jupyter labextension list |
+              python -c "import re, sys; assert re.search(r'jupyterlab-lsp.*OK.*jupyterlab-lsp', sys.stdin.read())"
+          - jupyter server extension list |
+              python -c "import re, sys; assert re.search(r'jupyter_lsp.*OK.*jupyterlab-lsp', sys.stdin.read())"
+    about:
+      license_file:
+        - jupyterlab-lsp/LICENSE
+        - jupyterlab-lsp/jupyterlab_lsp/labextensions/@jupyter-lsp/jupyterlab-lsp/static/third-party-licenses.json
+      license: BSD-3-Clause
+      summary: Language Server Protocol integration for JupyterLab
+      homepage: https://github.com/jupyter-lsp/jupyterlab-lsp
+      documentation: https://jupyterlab-lsp.readthedocs.io
+
+  - package:
+      name: jupyter-lsp
+      version: ${{ server_version }}
+    build:
+      number: ${{ server_build_number }}
+      noarch: python
+      script:
+        - cd jupyter-lsp
+        - ${{ PYTHON }} -m pip install . --no-deps -vv --no-build-isolation --disable-pip-version-check
+    requirements:
+      host:
+        - pip
+        - python ${{ python_min }}.*
+        - setuptools
+      run:
+        - importlib-metadata >=4.8.3
+        - jupyter_server >=1.1.2
+        - python >=${{ python_min }}
+    tests:
+      - python:
+          imports: jupyter_lsp
+          pip_check: true
+          python_version:
+            - ${{ python_min }}.*
+            - ${{ python_check_max }}.*
+      - requirements:
+          run:
+            - python ${{ python_min }}.*
+        script:
+          - jupyter server extension list
+          - jupyter server extension list |
+              python -c "import re, sys; assert re.search(r'jupyter_lsp.*OK', sys.stdin.read())"
+    about:
+      license: BSD-3-Clause
+      license_file: jupyter-lsp/LICENSE
+      summary: Multi-Language Server WebSocket proxy for Jupyter Server
+      homepage: https://github.com/jupyter-lsp/jupyterlab-lsp
+      documentation: https://jupyterlab-lsp.readthedocs.io
+
+  - package:
+      name: jupyter-lsp-latex
+      version: ${{ server_version }}
+    build:
+      number: ${{ server_build_number }}
+      noarch: generic
+    requirements:
+      run:
+        - ${{ pin_subpackage("jupyter-lsp", exact=True) }}
+        - chktex
+        - texlab
+    tests:
+      - python:
+          imports: jupyter_lsp
+          pip_check: true
+          python_version:
+            - ${{ python_min }}.*
+            - ${{ python_check_max }}.*
+      - requirements:
+          run:
+            - pytest-asyncio
+            - pytest-runner
+        script:
+          - pytest -vv -p no:warnings --pyargs jupyter_lsp -k "not (${{ server_tests }} or r_package_detection)"
+    about:
+      license: BSD-3-Clause
+      license_file: jupyter-lsp/LICENSE
+      summary: A metapackage for jupyter-lsp and texlab
+      homepage: https://github.com/jupyter-lsp/jupyterlab-lsp
+      documentation: https://jupyterlab-lsp.readthedocs.io
+
+  - package:
+      name: jupyter-lsp-python
+      version: ${{ server_version }}
+    build:
+      number: ${{ server_build_number }}
+      noarch: generic
+    requirements:
+      run:
+        - ${{ pin_subpackage("jupyter-lsp", exact=True) }}
+        - python-lsp-server >=1
+    tests:
+      - python:
+          imports: jupyter_lsp
+          pip_check: true
+          python_version:
+            - ${{ python_min }}.*
+            - ${{ python_check_max }}.*
+      - requirements:
+          run:
+            - pytest-asyncio
+            - pytest-runner
+        script:
+          - pytest -vv -p no:warnings --pyargs jupyter_lsp -k "not (${{ server_tests }} or r_package_detection)"
+    about:
+      license: BSD-3-Clause
+      license_file: jupyter-lsp/LICENSE
+      summary: A metapackage for jupyter-lsp and python-lsp-server
+      homepage: https://github.com/jupyter-lsp/jupyterlab-lsp
+      documentation: https://jupyterlab-lsp.readthedocs.io
+
+  - package:
+      name: jupyter-lsp-python-plugins
+      version: ${{ server_version }}
+    build:
+      number: ${{ server_build_number }}
+      noarch: generic
+    requirements:
+      run:
+        - ${{ pin_subpackage("jupyter-lsp-python", exact=True) }}
+        - pyls-isort >=0.2.2
+        - pylsp-mypy >=0.5.1
+        # TODO: remove after https://github.com/conda-forge/pyls-memestra-feedstock/issues/18
+        # - pyls-memestra >=0.0.13
+      run_constraints:
+        - ipython >=7.20
+        - pylsp-mypy !=0.6.6=*_0
+    tests:
+      - python:
+          imports: jupyter_lsp
+          pip_check: true
+          python_version:
+            - ${{ python_min }}.*
+            - ${{ python_check_max }}.*
+      - requirements:
+          run:
+            - pytest-asyncio
+            - pytest-runner
+        script:
+          - pytest -vv -p no:warnings --pyargs jupyter_lsp -k "not (${{ server_tests }} or r_package_detection)"
+    about:
+      license: BSD-3-Clause
+      license_file: jupyter-lsp/LICENSE
+      summary: A metapackage for jupyter-lsp, python-language-server, and all known plugins
+      homepage: https://github.com/jupyter-lsp/jupyterlab-lsp
+      documentation: https://jupyterlab-lsp.readthedocs.io
+
+  - package:
+      name: jupyter-lsp-r
+      version: ${{ server_version }}
+    build:
+      number: ${{ server_build_number }}
+      noarch: generic
+    requirements:
+      run:
+        - ${{ pin_subpackage("jupyter-lsp", exact=True) }}
+        # Snippets support https://github.com/jupyter-lsp/jupyterlab-lsp/issues/208
+        - r-languageserver >=0.3.5
+    tests:
+      - python:
+          imports: jupyter_lsp
+          pip_check: true
+          python_version:
+            - ${{ python_min }}.*
+            - ${{ python_check_max }}.*
+      - requirements:
+          run:
+            - pytest-asyncio
+            - pytest-runner
+        script:
+          - pytest -vv -p no:warnings --pyargs jupyter_lsp -k "not (${{ server_tests }})"
+    about:
+      license: BSD-3-Clause
+      license_file: jupyter-lsp/LICENSE
+      summary: A metapackage jupyter-lsp and r-languageserver
+      homepage: https://github.com/jupyter-lsp/jupyterlab-lsp
+      documentation: https://jupyterlab-lsp.readthedocs.io
+
+about:
+  license: BSD-3-Clause
+  license_file: jupyterlab-lsp/LICENSE
+  summary: Multi-Language Server WebSocket proxy for Jupyter Server
+  homepage: https://github.com/jupyter-lsp/jupyterlab-lsp
+  documentation: https://jupyterlab-lsp.readthedocs.io
+
+extra:
+  feedstock-name: jupyter-lsp
+  recipe-maintainers:
+    - bollwyvl
+    - fcollonval
+    - krassowski
