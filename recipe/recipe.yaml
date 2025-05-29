@@ -191,7 +191,7 @@ outputs:
         # - pyls-memestra >=0.0.13
       run_constraints:
         - ipython >=7.20
-        - pylsp-mypy !=0.6.6=*_0
+        - pylsp-mypy !=0.6.6[build=*_0]
     tests:
       - python:
           imports: jupyter_lsp
