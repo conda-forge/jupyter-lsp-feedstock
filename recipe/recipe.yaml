@@ -5,12 +5,12 @@ context:
   # this is the version the bot will _hopefully_ pick up and PR.
   version: 5.1.1
   # Leave the build number the same if only the server version changes.
-  build_number: 0
+  build_number: 1
   # this will likely have to be hand-updated.
   server_version: 2.2.5
   # Leave the build number the same if only the labextension changes.
-  server_build_number: 1
-  # a non-minumum version of python to check
+  server_build_number: 2
+  # a non-minumum version of python against which to `pip check`
   python_check_max: 3.13
   # skipped server tests to avoid container networking adventures
   server_tests: serverextension or start_known or listeners or substitute_env
@@ -63,8 +63,8 @@ outputs:
         script:
           - jupyter labextension list
           - jupyter server extension list
-          - jupyter labextension list | python -c "import re, sys; assert re.search(r'jupyterlab-lsp.*OK.*jupyterlab-lsp', sys.stdin.read())"
-          - jupyter server extension list | python -c "import re, sys; assert re.search(r'jupyter_lsp.*OK.*jupyterlab-lsp', sys.stdin.read())"
+          - jupyter labextension list | python -c "import re, sys; assert re.search(r'jupyterlab-lsp.*OK.*jupyterlab-lsp', sys.stdin.read()), 'bad lab extension'"
+          - jupyter server extension list | python -c "import re, sys; assert re.search(r'jupyter_lsp.*OK.*jupyterlab-lsp', sys.stdin.read()), 'bad server extension'"
     about:
       license_file:
         - jupyterlab-lsp/LICENSE
@@ -104,7 +104,7 @@ outputs:
             - python ${{ python_min }}.*
         script:
           - jupyter server extension list
-          - jupyter server extension list | python -c "import re, sys; assert re.search(r'jupyter_lsp.*OK', sys.stdin.read())"
+          - jupyter server extension list | python -c "import re, sys; assert re.search(r'jupyter_lsp.*OK', sys.stdin.read()), 'bad server extension'"
     about:
       license: BSD-3-Clause
       license_file: jupyter-lsp/LICENSE
@@ -132,6 +132,7 @@ outputs:
             - ${{ python_check_max }}.*
       - requirements:
           run:
+            - python ${{ python_min }}.*
             - pytest-asyncio
             - pytest-runner
         script:
@@ -162,6 +163,7 @@ outputs:
             - ${{ python_check_max }}.*
       - requirements:
           run:
+            - python ${{ python_min }}.*
             - pytest-asyncio
             - pytest-runner
         script:
@@ -198,6 +200,7 @@ outputs:
             - ${{ python_check_max }}.*
       - requirements:
           run:
+            - python ${{ python_min }}.*
             - pytest-asyncio
             - pytest-runner
         script:
@@ -229,6 +232,7 @@ outputs:
             - ${{ python_check_max }}.*
       - requirements:
           run:
+            - python ${{ python_min }}.*
             - pytest-asyncio
             - pytest-runner
         script:
