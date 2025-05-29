@@ -12,8 +12,10 @@ context:
   server_build_number: 2
   # a non-minumum version of python against which to `pip check`
   python_check_max: 3.13
-  # skipped server tests to avoid container networking adventures
+  # skipped server tests to avoid container networking issues
   server_tests: serverextension or start_known or listeners or substitute_env
+  # mor skipped server tests to avoid r-lang issues
+  py_server_tests: ${{ server_tests }} or r_package_detection
 
 recipe:
   name: jupyter-lsp-meta
@@ -136,7 +138,7 @@ outputs:
             - pytest-asyncio
             - pytest-runner
         script:
-          - pytest -vv --tb=long --color=yes -p no:warnings --pyargs jupyter_lsp -k "not (${{ server_tests }} or r_package_detection)"
+          - pytest -vv --tb=long --color=yes -p no:warnings --pyargs jupyter_lsp -k "not (${{ py_server_tests }})"
     about:
       license: BSD-3-Clause
       license_file: jupyter-lsp/LICENSE
@@ -167,7 +169,7 @@ outputs:
             - pytest-asyncio
             - pytest-runner
         script:
-          - pytest -vv --tb=long --color=yes -p no:warnings --pyargs jupyter_lsp -k "not (${{ server_tests }} or r_package_detection)"
+          - pytest -vv --tb=long --color=yes -p no:warnings --pyargs jupyter_lsp -k "not (${{ py_server_tests }})"
     about:
       license: BSD-3-Clause
       license_file: jupyter-lsp/LICENSE
@@ -185,12 +187,10 @@ outputs:
       run:
         - ${{ pin_subpackage("jupyter-lsp-python", exact=True) }}
         - pyls-isort >=0.2.2
-        - pylsp-mypy >=0.5.1
-        # TODO: remove after https://github.com/conda-forge/pyls-memestra-feedstock/issues/18
-        # - pyls-memestra >=0.0.13
+        - pylsp-mypy >=0.5.1,!=0.6.6[build=*_0]
+        - pyls-memestra >=0.0.13
       run_constraints:
         - ipython >=7.20
-        - pylsp-mypy !=0.6.6[build=*_0]
     tests:
       - python:
           imports: jupyter_lsp
@@ -204,7 +204,7 @@ outputs:
             - pytest-asyncio
             - pytest-runner
         script:
-          - pytest -vv --tb=long --color=yes -p no:warnings --pyargs jupyter_lsp -k "not (${{ server_tests }} or r_package_detection)"
+          - pytest -vv --tb=long --color=yes -p no:warnings --pyargs jupyter_lsp -k "not (${{ py_server_tests }})"
     about:
       license: BSD-3-Clause
       license_file: jupyter-lsp/LICENSE
