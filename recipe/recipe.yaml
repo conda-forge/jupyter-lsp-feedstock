@@ -3,15 +3,15 @@ schema_version: 1
 
 context:
   # this is the version the bot will _hopefully_ pick up and PR.
-  version: 5.1.1
+  version: "5.2.0"
   # Leave the build number the same if only the server version changes.
-  build_number: 1
+  build_number: 0
   # this will likely have to be hand-updated.
-  server_version: 2.2.5
+  server_version: "2.2.6"
   # Leave the build number the same if only the labextension changes.
-  server_build_number: 2
+  server_build_number: 0
   # a non-minumum version of python against which to `pip check`
-  python_check_max: 3.13
+  python_check_max: "3.13"
 
 recipe:
   name: jupyter-lsp-meta
@@ -19,10 +19,10 @@ recipe:
 
 source:
   - url: https://pypi.org/packages/source/j/jupyterlab-lsp/jupyterlab_lsp-${{ version }}.tar.gz
-    sha256: 7233ca73ea0f2da8598ea33d84c243635466d1af70ddce8cd8336ef95dca08bf
+    sha256: 63684885b35c1dc9d83e54b4b06380c9375ad7d751a2975649b357308c8d30b9
     target_directory: jupyterlab-lsp
-  - url: https://pypi.org/packages/source/j/jupyter-lsp/jupyter-lsp-${{ server_version }}.tar.gz
-    sha256: 793147a05ad446f809fd53ef1cd19a9f5256fd0a2d6b7ce943a982cb4f545001
+  - url: https://pypi.org/packages/source/j/jupyter-lsp/jupyter_lsp-${{ server_version }}.tar.gz
+    sha256: 0566bd9bb04fd9e6774a937ed01522b555ba78be37bebef787c8ab22de4c0361
     target_directory: jupyter-lsp
 
 build:
