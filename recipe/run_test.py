@@ -8,7 +8,9 @@ PKG_NAME = os.environ["PKG_NAME"]
 
 TEST_SKIPS = ["serverextension", "start_known", "listeners", "substitute_env"]
 
-CHECKS: list[tuple[str, list[str]]] = []
+CHECKS: list[tuple[str, list[str]]] = [
+    ("No broken requirements found", [sys.executable, "-m", "pip", "check"]),
+]
 
 if PKG_NAME != "jupyter-lsp-r":
     TEST_SKIPS += ["r_package_detection"]

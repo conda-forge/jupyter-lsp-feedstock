@@ -4,10 +4,12 @@ schema_version: 1
 context:
   # this is the version the bot will _hopefully_ pick up and PR.
   version: "5.2.0"
-  # Leave the build number the same if only the server version changes.
-  build_number: 0
+  # generally leave the build number the same if only the server version changes.
+  build_number: 1
   # this will likely have to be hand-updated.
-  server_version: "2.2.6"
+  server_version: "2.3.0"
+  # the required version of the server component: often updated together, but...
+  lab_server_version: "2.0.0"  # ${{ server_version }}
   # Leave the build number the same if only the labextension changes.
   server_build_number: 0
   # a non-minumum version of python against which to `pip check`
@@ -22,7 +24,7 @@ source:
     sha256: 63684885b35c1dc9d83e54b4b06380c9375ad7d751a2975649b357308c8d30b9
     target_directory: jupyterlab-lsp
   - url: https://pypi.org/packages/source/j/jupyter-lsp/jupyter_lsp-${{ server_version }}.tar.gz
-    sha256: 0566bd9bb04fd9e6774a937ed01522b555ba78be37bebef787c8ab22de4c0361
+    sha256: 458aa59339dc868fb784d73364f17dbce8836e906cd75fd471a325cba02e0245
     target_directory: jupyter-lsp
 
 build:
@@ -45,7 +47,7 @@ outputs:
         - python ${{ python_min }}.*
         - setuptools
       run:
-        - jupyter-lsp >=${{ server_version }}
+        - jupyter-lsp >=${{ lab_server_version }}
         - jupyterlab >=4.1.0,<5.0.0a0
         - python >=${{ python_min }}
     tests:
@@ -57,6 +59,8 @@ outputs:
             - ${{ python_check_max }}.*
       - requirements:
           run:
+            - pip
+            - jupyter-lsp ${{ lab_server_version }}.*
             - python ${{ python_min }}.*
         script:
           file: run_test.py
@@ -98,6 +102,7 @@ outputs:
       - requirements:
           run:
             - python ${{ python_min }}.*
+            - pip
         script:
           file: run_test.py
           interpreter: python
@@ -128,6 +133,7 @@ outputs:
             - ${{ python_check_max }}.*
       - requirements:
           run:
+            - pip
             - python ${{ python_min }}.*
             - pytest-asyncio
         script:
@@ -159,6 +165,7 @@ outputs:
             - ${{ python_check_max }}.*
       - requirements:
           run:
+            - pip
             - python ${{ python_min }}.*
             - pytest-asyncio
         script:
@@ -194,6 +201,7 @@ outputs:
             - ${{ python_check_max }}.*
       - requirements:
           run:
+            - pip
             - python ${{ python_min }}.*
             - pytest-asyncio
         script:
@@ -226,6 +234,7 @@ outputs:
             - ${{ python_check_max }}.*
       - requirements:
           run:
+            - pip
             - python ${{ python_min }}.*
             - pytest-asyncio
         script:
