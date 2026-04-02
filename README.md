@@ -7,66 +7,78 @@ Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/jupyter-lsp-fee
 About jupyter-lsp
 -----------------
 
-Home: https://github.com/jupyter-lsp/jupyterlab-lsp
+Home: https://pypi.org/project/jupyter-lsp
 
 Package license: BSD-3-Clause
 
 Summary: Multi-Language Server WebSocket proxy for Jupyter Server
+
+Development: https://github.com/jupyter-lsp/jupyterlab-lsp
 
 Documentation: https://jupyterlab-lsp.readthedocs.io/
 
 About jupyter-lsp-latex
 -----------------------
 
-Home: https://github.com/jupyter-lsp/jupyterlab-lsp
+Home: https://pypi.org/project/jupyter-lsp
 
 Package license: BSD-3-Clause
 
 Summary: A metapackage for jupyter-lsp and texlab
+
+Development: https://github.com/jupyter-lsp/jupyterlab-lsp
 
 Documentation: https://jupyterlab-lsp.readthedocs.io/
 
 About jupyter-lsp-python
 ------------------------
 
-Home: https://github.com/jupyter-lsp/jupyterlab-lsp
+Home: https://pypi.org/project/jupyter-lsp
 
 Package license: BSD-3-Clause
 
 Summary: A metapackage for jupyter-lsp and python-lsp-server
+
+Development: https://github.com/jupyter-lsp/jupyterlab-lsp
 
 Documentation: https://jupyterlab-lsp.readthedocs.io/
 
 About jupyter-lsp-python-plugins
 --------------------------------
 
-Home: https://github.com/jupyter-lsp/jupyterlab-lsp
+Home: https://pypi.org/project/jupyter-lsp
 
 Package license: BSD-3-Clause
 
 Summary: A metapackage for jupyter-lsp, python-language-server, and all known plugins
+
+Development: https://github.com/jupyter-lsp/jupyterlab-lsp
 
 Documentation: https://jupyterlab-lsp.readthedocs.io/
 
 About jupyter-lsp-r
 -------------------
 
-Home: https://github.com/jupyter-lsp/jupyterlab-lsp
+Home: https://pypi.org/project/jupyter-lsp
 
 Package license: BSD-3-Clause
 
 Summary: A metapackage jupyter-lsp and r-languageserver
+
+Development: https://github.com/jupyter-lsp/jupyterlab-lsp
 
 Documentation: https://jupyterlab-lsp.readthedocs.io/
 
 About jupyterlab-lsp
 --------------------
 
-Home: https://github.com/jupyter-lsp/jupyterlab-lsp
+Home: https://pypi.org/project/jupyterlab-lsp
 
 Package license: BSD-3-Clause
 
 Summary: Language Server Protocol integration for JupyterLab
+
+Development: https://github.com/jupyter-lsp/jupyterlab-lsp
 
 Documentation: https://jupyterlab-lsp.readthedocs.io/
 
