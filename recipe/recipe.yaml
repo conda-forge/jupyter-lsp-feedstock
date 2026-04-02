@@ -3,9 +3,9 @@ schema_version: 1
 
 context:
   # this is the version the bot will _hopefully_ pick up and PR.
-  version: "5.2.0"
+  version: "5.3.0"
   # generally leave the build number the same if only the server version changes.
-  build_number: 1
+  build_number: 0
   # this will likely have to be hand-updated.
   server_version: "2.3.0"
   # the required version of the server component: often updated together, but...
@@ -21,7 +21,7 @@ recipe:
 
 source:
   - url: https://pypi.org/packages/source/j/jupyterlab-lsp/jupyterlab_lsp-${{ version }}.tar.gz
-    sha256: 63684885b35c1dc9d83e54b4b06380c9375ad7d751a2975649b357308c8d30b9
+    sha256: bdf014febc0ec297ff69087e957549d724eb0c29df3f24d4f4c40758a71afc3f
     target_directory: jupyterlab-lsp
   - url: https://pypi.org/packages/source/j/jupyter-lsp/jupyter_lsp-${{ server_version }}.tar.gz
     sha256: 458aa59339dc868fb784d73364f17dbce8836e906cd75fd471a325cba02e0245
